@@ -11,11 +11,10 @@ Chapter.destroy_all
 Sentence.destroy_all
 
 
-book = Book.create(name: 'Rubyst')
-
 10.times do |i|
-  book.chapters.create(name: i + 1)
-  book.chapters[i].sentences.create(word_count: rand(100))
+  book = Book.create(name: Faker::Book.title)
+  chapter = book.chapters.create(name: Faker::Ancient.god)
+  chapter.sentences.create(word_count: rand(100))
 end
 
 

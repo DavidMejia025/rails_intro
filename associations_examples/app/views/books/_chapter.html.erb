@@ -1,0 +1,7 @@
+<li><%= chapter.name %></li>
+<p>Con la oracion de tamaño</p>
+<ul>
+  <% chapter.sentences.each do |sentence| %>
+    <li><%= sentence.word_count %></li>
+  <% end %>
+</ul>

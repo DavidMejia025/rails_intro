@@ -12,17 +12,26 @@
 
 <!-- Que es el problema de query N+1 -->
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <ul>
+  <div class="col-md-6">
+    <ul id='book-chapters'>
       <% @book.chapters.each do |chapter| %>
-        <li><%= chapter.name %></li>
-        <p>Con la oracion de tamaño</p>
-        <ul>
-          <% chapter.sentences.each do |sentence| %>
-            <li><%= sentence.word_count %></li>
-          <% end %>
-        </ul>
+        <%= render 'books/chapter', chapter: chapter %>
       <% end %>
     </ul>
+  </div>
+  <div class="col-md-6">
+  <%= form_for [@book, @chapter], remote: true do |f| -%>
+    <div class="field-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control'  %>
+    </div>
+    <%= f.fields_for :sentences do |sentences_form| %>
+      <div class="field-group">
+        <%= sentences_form.label :word_count%>
+        <%= sentences_form.number_field :word_count, class: 'form-control' %>
+      </div>
+    <% end %>
+    <%= f.submit %>
+  <% end %>
   </div>
 </div>
