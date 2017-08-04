@@ -4,7 +4,7 @@
     <title>AssociationsExamples</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
@@ -40,7 +40,7 @@
                 </ul>
               </li>
             </ul>
-            <%= form_tag({controller: :books, action: :index}, method: 'get', remote: true, class: 'navbar-form navbar-left') do  %>
+            <%= form_tag({url: '/'}, method: 'get', remote: true, class: 'navbar-form navbar-left') do  %>
               <div class="form-group">
               <%= text_field_tag :query, nil,  class: 'form-control' %>
               </div>

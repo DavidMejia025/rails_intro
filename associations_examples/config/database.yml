@@ -22,4 +22,6 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: associations_examples
+  username: associations_examples
+  password: <%= ENV['ASSOCIATIONS_EXAMPLES_DATABASE_PASSWORD'] %>
