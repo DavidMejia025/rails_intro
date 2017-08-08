@@ -28,17 +28,7 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
-  # config.action_mailer.delivery_method = :letter_opener
-  ActionMailer::Base.smtp_settings = {
-    :port           => ENV['MAILGUN_SMTP_PORT'],
-    :address        => ENV['MAILGUN_SMTP_SERVER'],
-    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'sandboxb00bbc12bed14dffbc6d6102bac27016.mailgun.org',
-    :authentication => :plain,
-  }
-  ActionMailer::Base.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :letter_opener
 
   config.action_mailer.perform_caching = false
 
