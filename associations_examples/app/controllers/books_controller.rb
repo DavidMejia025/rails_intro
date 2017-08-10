@@ -17,7 +17,7 @@ class BooksController < ApplicationController
     @book = Book.includes(:chapters, :sentences).find(params[:id])
     @chapter = @book.chapters.new
     @chapter.sentences.new
-    UserMailer.welcome(current_user, @book).deliver_now
+    SendWelcomeEmailJob.perform_later(current_user, @book)
   end
 
   private
