@@ -42,7 +42,12 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create article" do
     assert_difference('Article.count') do
-      post articles_url, params: { article: { body: @article.body, title: @article.title } }
+      post articles_url, params: {
+        article: {
+          body: @article.body,
+          title: @article.title
+        }
+      }
     end
 
     assert_equal 'Article was successfully created.', flash[:notice]
@@ -60,7 +65,11 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update article" do
-    patch article_url(@article), params: { article: { body: @article.body, title: @article.title } }
+    patch article_url(@article), params: { article: { body: 'body nuevo', title: 'nuevo' } }
+
+    update_article = Article.find(@article.id)
+
+    assert_not_equal update_article.title, @article.title
     assert_redirected_to article_url(@article)
   end
 

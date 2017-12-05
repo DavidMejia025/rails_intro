@@ -1,0 +1,17 @@
+<h1><%= @book.title %></h1>
+
+<p><%= @book.description %></p>
+
+<h4>Autores</h4>
+
+<ul>
+  <% @book.authors.each do |author| %>
+    <li>
+      <%= link_to author.name, author_path(author) %>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= link_to "Edit", edit_book_path(@book) %>
+<%= button_to "Delete", book_path(@book), {method: :delete} %>

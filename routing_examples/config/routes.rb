@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-
-
   get 'profile', to: 'users#show'
 
   get 'profile', to: :show, controller: 'users', as: 'profile_path'
 
-  #noraml resources
+  #normal resources
   resource :users
+
+  #Singular resource
+  resource :geocoder
   # debido a un bug con los recursos singulares siempre toca poner la opcione url: cuando se usa el `form_for`
 
   # Namespaces
@@ -22,8 +23,6 @@ Rails.application.routes.draw do
     resources :maps, :points
   end
 
-  #Singular resource
-  resource :geocoder
 
   # Nested resources
   # Tarea http://weblog.jamisbuck.org/2007/2/5/nesting-resources
@@ -35,7 +34,6 @@ Rails.application.routes.draw do
   # resources :owners do
   #   resources :dogs, only: [:index, :new, :create]
   # end
-
 
   # #onwer_id
   # resources :dogs, only: [:show, :edit, :update, :destroy]

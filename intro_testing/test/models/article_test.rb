@@ -8,6 +8,15 @@ class ArticleTest < ActiveSupport::TestCase
     assert_not article.save
   end
 
+  test 'should save a valid article' do
+    article = Article.new(title: 'hola')
+    assert article.save
+  end
+
+  test 'reverse_title returns the tile in reverse' do
+    assert_equal "aloh", articles(:one).reverse_title
+  end
+
   #fixtures
 
   # Ejemplos de asserts disponibles(todo esto viene de minitest)

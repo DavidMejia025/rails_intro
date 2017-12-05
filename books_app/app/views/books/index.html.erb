@@ -1,0 +1,17 @@
+<h1>Estos son los libros</h1>
+
+<ul id="booksList">
+  <%= render @books %>
+</ul>
+
+<form action="/books" method="GET" id="searchForm">
+  <input type="text" name="query">
+  <input type="submit" value="Buscar">
+</form>
+
+<%= form_tag books_path, method: "GET", remote: true, id: 'buscar' do %>
+  <%= text_field_tag :query %>
+  <%= submit_tag "Buscar" %>
+<% end %>
+
+<%= link_to "New Book", new_book_path %>
