@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20171130235310) do
   create_table "authors_books", force: :cascade do |t|
     t.integer "author_id"
     t.integer "book_id"
+    t.date "birth_date"
     t.index ["author_id"], name: "index_authors_books_on_author_id"
     t.index ["book_id"], name: "index_authors_books_on_book_id"
   end
